@@ -39,7 +39,7 @@ fullnameOverride: ""
 commonLabels: {}
 
 cronJobApiVersion: "batch/v1"
-schedule: "*/2 * * * *"
+schedule: "*/15 * * * *"
 suspend: false
 # startingDeadlineSeconds: 200
 # successfulJobsHistoryLimit: 3
@@ -78,10 +78,10 @@ cmdOptions:
 deschedulerPolicyAPIVersion: "descheduler/v1alpha1"
 
 deschedulerPolicy:
-  # nodeSelector: "key1=value1,key2=value2"
+  nodeSelector: "dataos.io/purpose=core-kernel"
   # maxNoOfPodsToEvictPerNode: 10
   # maxNoOfPodsToEvictPerNamespace: 10
-  # ignorePvcPods: true
+  ignorePvcPods: true
   # evictLocalStoragePods: true
   # tracing:
   #   collectorEndpoint: otel-collector.observability.svc.cluster.local:4317
@@ -117,13 +117,13 @@ deschedulerPolicy:
       params:
         nodeResourceUtilizationThresholds:
           thresholds:
-            cpu: 20
-            memory: 20
-            pods: 20
+            cpu: 30
+            memory: 30
+            pods: 25
           targetThresholds:
             cpu: 50
             memory: 50
-            pods: 50
+            pods: 35
 
 priorityClassName: system-cluster-critical
 
