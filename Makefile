@@ -180,7 +180,7 @@ ct-helm:
 ### Helm push to ECR steps
 
 CH_DIR = charts
-DIR = pulsar
+DIR = descheduler
 VERSION = ${TAG}
 PACKAGED_CHART = ${DIR}-${VERSION}.tgz
 
